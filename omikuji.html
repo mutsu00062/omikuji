@@ -1,0 +1,124 @@
+﻿<!DOCTYPE = html>
+<html>
+    <head>
+        <title>○○みくじ2018</title>
+        <meta charset="UTF-8">
+        <style>
+            h1{
+                background-color: aqua;
+                color:darkorange;
+            }
+            p#daikichi{
+                color:crimson;
+                font-size: x-large;
+                text-align: center;
+                line-height: 1;
+            }
+            p{
+                line-height: 2;
+            }
+.box2 {
+padding: 0.5em 1em;
+margin: 2em 0;
+font-weight: bold;
+color: #6091d3;/*文字色*/
+background:aqua;
+border: solid 3px #6091d3;/*線*/
+border-radius: 10px;/*角の丸み*/
+}
+.box2 p {
+    margin: 0; 
+    padding: 0;
+}
+.box5 {
+    padding: 0.5em 1em;
+    margin: 2em 0;
+    border: double 5px #4ec4d3;
+}
+.box5 p {
+    margin: 0; 
+    padding: 0;
+}
+.box7{
+    padding: 0.5em 1em;
+    margin: 2em 0;
+    color: #474747;
+    background: whitesmoke;/*背景色*/
+    border-left: double 7px #4ec4d3;/*左線*/
+    border-right: double 7px #4ec4d3;/*右線*/
+}
+.box7 p {
+    margin: 0; 
+    padding: 0;
+}
+        </style>
+    </head>
+    <body>
+        <div class="box2">
+        <h1>○○みくじ2018</h1>
+        </div>
+        <input type="button" onClick="omikuji()" value="○○みくじをひく">
+        <div class="box5">
+        <p id = "daikichi"></p>
+        <div class="box7">
+            <p id = "negaigoto"></p>
+            <p id = "machibito"></p>
+            <p id = "nakushimono"></p>
+            <p id = "gakumon"></p>
+            <p id = "shuushoku"></p>
+            <p id = "yautsuri"></p>
+            <p id = "osan"></p>
+            <p id = "byouki"></p>
+            <p id = "endan"></p>
+                       
+        </div>
+        <script>
+        //前提となるファンクション
+        function getRandom(){
+            return Math.round(Math.random * 100);
+            }
+        function shuffle(array) {
+            var n = array.length, t, i;
+
+            while (n) {
+                i = Math.floor(Math.random() * n--);
+                t = array[n];
+                 array[n] = array[i];
+                 array[i] = t;
+            }
+            return array;
+        }
+        function selectArray(array){
+            shuffle(array)
+            return array[0];
+            }        
+        //ここからボタンで呼び出すファンクション
+        function omikuji(){
+            debug = 0;
+                var daikichi = ["大吉", "中吉", "吉", "末吉", "凶"];
+            document.getElementById("daikichi").innerHTML= selectArray(daikichi);
+            var negaigoto = ["おちんちんのように叶うでしょう" , "メガネの友人に叶えてもらいましょう", "一しごき一叶い", "OPDに比例して叶いやすい", "おちんちん"];
+            document.getElementById("negaigoto").innerHTML= "願い事：" + selectArray(negaigoto);
+            var machibito = ["いつか来る", "お前は一生童貞", "お年玉は残業", "おちんちん"];
+            document.getElementById("machibito").innerHTML= "願い事：" + selectArray(machibito);
+            var nakushimono = ["彼女の処女は失われました、残念！", "自分のぱんつを食べましょう", "元気が見つかるかどうかはあなた次第です", "おちんちん"];
+            document.getElementById("nakushimono").innerHTML= "失物：" + selectArray(nakushimono);
+            var gakumon = ["右手が捗るでしょう", "たわわに実るでしょう", "なんか作るの飽きてきた", "あなたは頭が悪いです", "私に勉強を教えてください" , "おちんちん"];
+            document.getElementById("gakumon").innerHTML= "学問：" + selectArray(gakumon);
+            var shuushoku = ["まあよさげ", "黒に限りなく近いホワイト", "Y O U T U B E R","おちんちん"];
+            document.getElementById("shuushoku").innerHTML= "就職：" + selectArray(shuushoku);
+            var yautsuri = ["島根に転居", "島根に転居", "島根に転居", "ホームレス","おちんちん"];
+            document.getElementById("yautsuri").innerHTML= "転居：" + selectArray(yautsuri);
+            var osan = ["元気な茶色いものが尻から くっさ", "すかしっぺ くっさ", "いまいち思いつかない", "おちんちん"];
+            document.getElementById("osan").innerHTML= "お産：" + selectArray(osan);
+            var byouki = ["頭の病気は治りません、ご愁傷様です", "自分のおっぱいをもむとよし", "持病はよくなります", "身長はもう伸びません", "おちんちん"];
+            document.getElementById("byouki").innerHTML= "病気：" + selectArray(byouki);
+            var endan = ["残念！サクラでした！", "有村架純と付き合えます", "一年後ウェディングドレスを着れます","一生右手が恋人", "お前のことが好きだったんだよ！" , "おちんちん"];
+            document.getElementById("endan").innerHTML= "縁談：" + selectArray(endan);
+            if(negaigoto === "おちんちん" && machibito  === "おちんちん" && nakushimono  === "おちんちん" && gakumon  === "おちんちん" && shuushoku  === "おちんちん" && yautsuri  === "おちんちん" && osan  === "おちんちん" && byouki === "おちんちん" && endan  === "おちんちん"){
+                document.getElementById("daikichi").innerHTML= "お ち ん ち ん ふぃ ー ば ー";
+            }
+        }
+        </script>
+    </body>
+</html>
